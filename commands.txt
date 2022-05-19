@@ -1,0 +1,33 @@
+python3 -m venv venv
+. venv/bin/activate
+pip install Django==3.2
+pip install Djangorestframework
+
+Django-admin startproject name_project(config|main)
+django-admin startapp name_app
+python3 manage.py startapp name_app
+
+config.settings ---> INSTALLED_APPS = [
+    ...
+    ...
+    ...
+    ...
+    ...
+    #app
+    'name_app'
+]
+
+name_app.models ----> write struct subject
+from Django.db import mmodels
+
+class CustomClassName(models.Model):
+    
+    id = default(Primary key, index)
+    ...
+    name_field = models.Typeclass()
+
+
+python3 manage.py makemigrations (name_app)    >>>   step (1)
+python3 manage.py migrate (name_app)           >>>   step (2)
+
+python3 manage.py runserver (default 8000)
